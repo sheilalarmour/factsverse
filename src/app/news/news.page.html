@@ -1,21 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>News</ion-title>
+    <ion-title>Facts</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-  <ion-card *ngFor="let article of data?.articles" (click)="onGoToNewsSinglePage(article)">
+<br>
+<ion-content id="facts-card">
+  <ion-card   *ngFor="let article of data" (click)="onGoToNewsSinglePage(article)">
     <!-- <ion-img [src]="article.urlToImage"></ion-img> -->
-
-    <ion-card-content>
-      <ion-card-title>{{article.title}}</ion-card-title>
-
-      <p>{{article.description}}</p>
+    <ion-card-content id="facts-title">
+      {{article.title}}
+      <!--<p>{{article.description}}</p>-->
     </ion-card-content>
   </ion-card>
 
-  <ion-infinite-scroll (ionInfinite)="loadMoreNews($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubble" loadingText="load news.."></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+  <div *ngIf="showLoader">
+  <br>
+  <br>
+  <br>
+    <div id="loader-wrapper">
+      <div id="loader">
+      </div>
+    </div>
+    <div class="entry-header">
+      <div class="loading_text">Loading Feed...</div>
+    </div>
+  </div>
 </ion-content>

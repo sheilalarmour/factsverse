@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
-  { path: 'news', loadChildren: './news/news.module#NewsPageModule' },
+  { path: 'news', loadChildren: './news/news.module' },
   { path: 'news-single', loadChildren: './news-single/news-single.module#NewsSinglePageModule' }
 ];
 @NgModule({

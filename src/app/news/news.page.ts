@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../news.service';
 import { Router } from '@angular/router';
+import { Platform } from '@ionic/angular';
+import {enableProdMode} from '@angular/core';
 
 @Component({
   selector: 'app-news',
@@ -9,19 +11,16 @@ import { Router } from '@angular/router';
 })
 export class NewsPage implements OnInit {
   data: any;
-  page = 1;
-  constructor(private newsService: NewsService, private router: Router) {}
+  showLoader = true;
+  constructor(private newsService: NewsService, private router: Router,private platform:Platform) {}
 
   ngOnInit() {
     this.newsService
-      .getData(
-        `top-headlines?country=us&category=business&pageSize=5&page=${
-          this.page
-        }`
-      )
+      .getData()
       .subscribe(data => {
-        console.log(data);
-        this.data = data;
+        console.log("Rakesh::"+data);
+      this.data = data;
+      this.showLoader = false;
       });
   }
 
@@ -30,23 +29,4 @@ export class NewsPage implements OnInit {
     this.router.navigate(['/news-single']);
   }
 
-  loadMoreNews(event) {
-    this.page++;
-    console.log(event);
-    this.newsService
-      .getData(
-        `top-headlines?country=us&category=business&pageSize=5&page=${
-          this.page
-        }`
-      )
-      .subscribe(data => {
-        // console.log(data);
-        // this.data = data;
-        for (const article of data['articles']) {
-          this.data.articles.push(article);
-        }
-        event.target.complete();
-        console.log(this.data);
-      });
-  }
 }

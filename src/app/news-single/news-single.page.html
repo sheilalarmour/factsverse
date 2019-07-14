@@ -8,10 +8,12 @@
   <ion-card>
     <ion-img [src]="article.urlToImage"></ion-img>
 
-    <ion-card-content>
-      <ion-card-title>{{article.title}}</ion-card-title>
+    
+      <ion-card-content id="facts-description-title">{{article.title}}</ion-card-content>
+    
 
-      <p>{{article.description}}</p>
+    <ion-card-content>
+      {{article.description}}
     </ion-card-content>
   </ion-card>
 </ion-content>

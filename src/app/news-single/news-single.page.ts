@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../news.service';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-news-single',
@@ -8,7 +9,7 @@ import { NewsService } from '../news.service';
 })
 export class NewsSinglePage implements OnInit {
   article;
-  constructor(private newsService: NewsService) {}
+  constructor(private newsService: NewsService, private platform:Platform) {}
 
   ngOnInit() {
     this.article = this.newsService.currentArticle;
