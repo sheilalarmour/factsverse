@@ -4,8 +4,9 @@ import { Router } from '@angular/router';
 import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free/ngx';
 //import { AdMobPro, AdMobProBannerConfig} from '@ionic-native/admob-pro/ngx';
 //import { AdMobOriginal } from "@ionic-native/admob-plus";
-import { Platform } from '@ionic/angular';
+import { Platform, NavController } from '@ionic/angular';
 import {enableProdMode} from '@angular/core';
+
 
 @Component({
   selector: 'app-news',
@@ -15,17 +16,17 @@ import {enableProdMode} from '@angular/core';
 export class NewsPage implements OnInit {
   data: any;
   showLoader = true;
-  constructor(private newsService: NewsService, private router: Router,private admobFree: AdMobFree,private platform:Platform) {}
+  constructor(private newsService: NewsService, private router: Router,private admobFree: AdMobFree,private platform:Platform, public navCtrl: NavController) {}
 
   ngOnInit() {
-    this.newsService
-      .getData()
-      .subscribe(data => {
-        console.log("Rakesh::"+data);
-      this.data = data;
-      this.showLoader = false;
-      });
-
+    // this.newsService
+    //   .getData()
+    //   .subscribe(data => {
+    //     console.log("Rakesh::"+data);
+    //   this.data = data;
+    //   this.showLoader = false;
+    //   });
+    this.fetchData();
       const bannerConfig: AdMobFreeBannerConfig = {
         id: 'ca-app-pub-3940256099942544/6300978111',
         size: 'BANNER',
@@ -56,6 +57,22 @@ export class NewsPage implements OnInit {
   onGoToNewsSinglePage(article) {
     this.newsService.currentArticle = article;
     this.router.navigate(['/news-single']);
+  }
+
+  onRefresh(){
+    console.log("Rakesh refresh clicked");
+    this.showLoader = true;
+    this.fetchData();
+  }
+
+  fetchData(){
+    this.newsService
+    .getData()
+    .subscribe(data => {
+      console.log("Rakesh::"+data);
+    this.data = data;
+    this.showLoader = false;
+    });
   }
 
 }

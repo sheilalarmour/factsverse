@@ -1,13 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Facts</ion-title>
+    <ion-title style="font-size:1.7rem;">Facts
+      <ion-icon name="refresh" size="large"  (click)="onRefresh()"></ion-icon>
+    </ion-title>
+    
   </ion-toolbar>
 </ion-header>
 <br>
 <ion-content id="facts-card">
-  <ion-card   *ngFor="let article of data" (click)="onGoToNewsSinglePage(article)">
+  <ion-card    *ngFor="let article of data" (click)="onGoToNewsSinglePage(article)">
     <!-- <ion-img [src]="article.urlToImage"></ion-img> -->
-    <ion-card-content id="facts-title">
+    <ion-card-content id="facts-title" *ngIf="!showLoader">
       {{article.title}}
       <!--<p>{{article.description}}</p>-->
     </ion-card-content>
