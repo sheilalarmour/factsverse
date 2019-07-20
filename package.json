@@ -33,8 +33,10 @@
     "@ionic/angular": "4.0.0-beta.0",
     "@ionic/ng-toolkit": "1.0.0",
     "@ionic/schematics-angular": "1.0.1",
+    "cordova-admob-sdk": "^0.24.1",
     "cordova-android": "^8.0.0",
     "cordova-plugin-admob-free": "^0.27.0",
+    "cordova-promise-polyfill": "0.0.2",
     "cordova-support-android-plugin": "^1.0.1",
     "core-js": "^2.5.3",
     "ionic-admob": "^0.19.6",
@@ -85,7 +87,10 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "onesignal-cordova-plugin": {}
+      "onesignal-cordova-plugin": {},
+      "cordova-plugin-admob-free": {
+        "ADMOB_APP_ID": "ca-app-pub-5182313385642905~2544945200"
+      }
     },
     "platforms": [
       "android"

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../news.service';
 import { Platform } from '@ionic/angular';
 import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free/ngx';
+//import { AdMobOriginal} from "@ionic-native/admob-plus";
 @Component({
   selector: 'app-news-single',
   templateUrl: './news-single.page.html',
@@ -16,10 +17,10 @@ export class NewsSinglePage implements OnInit {
     console.log(this.newsService.currentArticle);
 
     const bannerConfig: AdMobFreeBannerConfig = {
-      id: 'ca-app-pub-5182313385642905/6483459867',
+      id: 'ca-app-pub-3940256099942544/6300978111',
       size: 'BANNER',
       overlap:false,
-      isTesting: false,
+      isTesting: true,
       autoShow: true
      };
      this.admobFree.banner.config(bannerConfig);
@@ -32,5 +33,13 @@ export class NewsSinglePage implements OnInit {
         this.admobFree.banner.show();
        })
        .catch(e => console.log(e));
+    // this.admob.banner.show({
+    //   id: {
+    //     // replace with your ad unit IDs
+    //     android: 'ca-app-pub-5182313385642905/6483459867',
+    //     ios: 'test'
+    //   }
+    // });
+
   }
 }
