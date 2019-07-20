@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "859687403906",
+    "firebase_url": "https://factsverse-e2915.firebaseio.com",
+    "project_id": "factsverse-e2915",
+    "storage_bucket": "factsverse-e2915.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:859687403906:android:ac92a52d3c3aa9c8",
+        "android_client_info": {
+          "package_name": "com.amgs.factsverse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "859687403906-dltok06rk0g97kg8t5vd8fa5icdqb1mq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9vR2730oSmbYEZfIgM59hn7MeNhxV6Tk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "859687403906-dltok06rk0g97kg8t5vd8fa5icdqb1mq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

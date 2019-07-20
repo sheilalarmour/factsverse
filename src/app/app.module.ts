@@ -10,7 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
-
+//import { AdMobPro} from '@ionic-native/admob-pro/ngx';
+//import { AdMobOriginal } from "@ionic-native/admob-plus";
+//import { Push } from '@ionic-native/push/ngx';
+//import { FirebaseMessaging } from '@ionic-native/firebase-messaging/ngx';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -24,6 +28,7 @@ import { AdMobFree } from '@ionic-native/admob-free/ngx';
     StatusBar,
     SplashScreen,
     AdMobFree,
+    OneSignal,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
