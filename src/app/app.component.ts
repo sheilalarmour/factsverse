@@ -35,13 +35,14 @@ export class AppComponent {
       //this.pushSetup();
 
       this.platform.backButton.subscribe(() => {
-        if (this.routerOutlet && this.routerOutlet.canGoBack()) {
-          this.routerOutlet.pop();
-        } else if (this.router.url === '/tabs/(news:news)') {
+        // if (this.routerOutlet && this.routerOutlet.canGoBack()) {
+        //   this.routerOutlet.pop();
+        // } else 
+        if ((this.router.url === '/tabs/(news:news)') || (this.router.url === '/tabs/(about:about)') || (this.router.url === '/tabs/(contact:contact)')) {
           // or if that doesn't work, try
           navigator['app'].exitApp();
-        } else {
-
+        } else if (this.router.url === '/news-single'){
+          this.router.navigate([""])
         }
       });
 
