@@ -15,6 +15,7 @@ import {enableProdMode} from '@angular/core';
 })
 export class NewsPage implements OnInit {
   data: any;
+  data_temp: any;
   showLoader = true;
   constructor(private newsService: NewsService, private router: Router,private admobFree: AdMobFree,private platform:Platform, public navCtrl: NavController) {}
 
@@ -28,10 +29,10 @@ export class NewsPage implements OnInit {
     //   });
     this.fetchData();
       const bannerConfig: AdMobFreeBannerConfig = {
-        id: 'ca-app-pub-3940256099942544/6300978111',
+        id: 'ca-app-pub-5182313385642905/6483459867',
         size: 'BANNER',
         overlap:false,
-        isTesting: true,
+        isTesting: false,
         autoShow: true
        };
        this.admobFree.banner.config(bannerConfig);
@@ -70,7 +71,8 @@ export class NewsPage implements OnInit {
     .getData()
     .subscribe(data => {
       console.log("Rakesh::"+data);
-    this.data = data;
+    this.data_temp = JSON.parse(JSON.stringify(data));
+    this.data = this.data_temp.reverse();
     this.showLoader = false;
     });
   }

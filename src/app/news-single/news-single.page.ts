@@ -17,10 +17,10 @@ export class NewsSinglePage implements OnInit {
     console.log(this.newsService.currentArticle);
 
     const bannerConfig: AdMobFreeBannerConfig = {
-      id: 'ca-app-pub-3940256099942544/6300978111',
+      id: 'ca-app-pub-5182313385642905/6483459867',
       size: 'BANNER',
       overlap:false,
-      isTesting: true,
+      isTesting: false,
       autoShow: true
      };
      this.admobFree.banner.config(bannerConfig);
